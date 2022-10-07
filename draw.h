@@ -3,4 +3,4 @@
 
 #endif //TICTACTOEINC__DRAW_H_
 
-void DrawPanel(int panel_mat[3][3]);
+void DrawPanel(int panel_mat[3][3], bool draw_remain);
