@@ -1,6 +1,9 @@
 #include <stdio.h>
 
+#include "interface.h"
+
 int main() {
-  printf("Hello, World!\n");
-  return 0;
+  PrintStart();
+  PrintGameOver("You");
+  PrintEnd();
 }
