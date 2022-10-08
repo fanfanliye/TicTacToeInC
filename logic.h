@@ -3,8 +3,8 @@
 
 #endif //TICTACTOEINC__LOGIC_H_
 
-void InitPanelMat(int panel_mat[3][3]);
+void InitGridMat(int grid_mat[3][3]);
 
-void UpdatePanelMat(int panel_mat[3][3], int loc, int user);
+void UpdateGridMat(int grid_mat[3][3], int loc, int user);
 
-int DetermineWinner(int panel_mat[3][3]);
+int DetermineWinner(int grid_mat[3][3]);

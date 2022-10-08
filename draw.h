@@ -5,4 +5,4 @@
 #define MARK_1 'O'
 #define MARK_2 'X'
 
-void DrawPanel(int panel_mat[3][3], bool draw_remain);
+void DrawGrid(int grid_mat[3][3], bool draw_remain);

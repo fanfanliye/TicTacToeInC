@@ -11,8 +11,10 @@ void PrintGameOver(int winner_id, char* user_name_1, char* user_name_2);
 
 void PrintEnd();
 
-int GetUserInput(int panel_mat[3][3]);
+int GetUserInput(int grid_mat[3][3]);
+
+void GameIter(int grid_mat[3][3], int user_id, char *user_name);
 
 void Game();
 
-void GameLoop(int panel_mat[3][3], char* user_name_1, char* user_name_2);
+void GameLoop(int grid_mat[3][3], char* user_name_1, char* user_name_2);
