@@ -8,3 +8,5 @@ void PrintStart();
 void PrintGameOver(char* winner);
 
 void PrintEnd();
+
+int GetUserInput(int panel_mat[3][3]);
