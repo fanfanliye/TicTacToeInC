@@ -1,6 +1,15 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "logic.h"
 
+
+void InitPanelMat(int panel_mat[3][3]) {
+  for (int i = 0; i < 3; i++) {
+	for (int j = 0; j < 3; j++) {
+	  panel_mat[i][j] = 0;
+	}
+  }
+}
 
 void UpdatePanelMat(int panel_mat[3][3], int loc, int user) {
   panel_mat[loc / 3][loc % 3] = user;
@@ -35,5 +44,12 @@ int DetermineWinner(int panel_mat[3][3]) {
 	  return center;
 	}
   }
-  return 0;
+  for (int i = 0; i < 3; i++) {
+	for (int j = 0; j < 3; j++) {
+	  if (panel_mat[i][j] == 0) {
+		return 0;
+	  }
+	}
+  }
+  return -1;
 }
