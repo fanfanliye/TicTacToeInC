@@ -4,7 +4,7 @@
 #include "draw.h"
 
 
-const char MARKS[3] = {' ', 'O', 'X'};
+const char MARKS[3] = {' ', MARK_1, MARK_2};
 
 void DrawPanel(int panel_mat[3][3], bool draw_remain) {
   char mark;
