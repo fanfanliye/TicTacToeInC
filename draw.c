@@ -3,7 +3,6 @@
 
 #include "draw.h"
 
-
 const char MARKS[3] = {' ', MARK_1, MARK_2};
 
 void DrawPanel(int panel_mat[3][3], bool draw_remain) {
@@ -13,7 +12,7 @@ void DrawPanel(int panel_mat[3][3], bool draw_remain) {
 	  if (i % 2 == 0) {
 		if ((j + 1) % 4 == 0) {
 		  printf("|");
-		} else if ( j % 4 == 1) {
+		} else if (j % 4 == 1) {
 		  if (draw_remain) {
 			mark = panel_mat[i / 2][j / 4] > 0 ? ' ' : (char)(i / 2 * 3 + j / 4 + 1 + 48);
 			printf("%c", mark);

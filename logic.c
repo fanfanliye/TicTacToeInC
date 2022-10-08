@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdbool.h>
 #include "logic.h"
-
 
 void InitPanelMat(int panel_mat[3][3]) {
   for (int i = 0; i < 3; i++) {
@@ -23,8 +20,8 @@ int DetermineWinner(int panel_mat[3][3]) {
 	  continue;
 	}
 	if (*rptr == *(rptr + 1) && *rptr == *(rptr + 2)) {
-		return *rptr;
-	  }
+	  return *rptr;
+	}
   }
   for (int i = 0; i < 3; i++) {
 	cptr = &panel_mat[0][i];
