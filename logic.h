@@ -5,7 +5,7 @@
 
 void InitGridMat(int grid_mat[3][3]);
 
-void UpdateGridMat(int grid_mat[3][3], int loc, int user);
+void UpdateGridMat(int grid_mat[3][3], int loc, int player);
 
 int DetermineWinner(int grid_mat[3][3]);
 

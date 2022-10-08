@@ -12,16 +12,16 @@ void PrintStart() {
   printf("The game will start!\n");
 }
 
-void GetUserName(int user_id, char *user_name) {
-  printf("Please Enter the name for user %d (less than 20 chars): ", user_id);
-  scanf("%s", user_name);
-  printf("User %d name: %s\n", user_id, user_name);
+void GetPlayerName(int player_id, char *player_name) {
+  printf("Please Enter the name for player %d (less than 20 chars): ", player_id);
+  scanf("%s", player_name);
+  printf("Player %d name: %s\n", player_id, player_name);
 }
 
-void PrintGameOver(int winner_id, char *user_name_1, char *user_name_2) {
+void PrintGameOver(int winner_id, char *player_name_1, char *player_name_2) {
   printf("Game Over!\n");
   if (winner_id > 0) {
-	printf("Winner is: %s!\n", winner_id - 1 ? user_name_2 : user_name_1);
+	printf("Winner is: %s!\n", winner_id - 1 ? player_name_2 : player_name_1);
   } else {
 	printf("It is a draw!\n");
   }
@@ -31,7 +31,7 @@ void PrintEnd() {
   printf("Exiting game...\nDone!\n");
 }
 
-int GetUserInput(int grid_mat[3][3]) {
+int GetPlayerInput(int grid_mat[3][3]) {
   printf("The current available spots:\n");
   DrawGrid(grid_mat, true);
   printf("Please select your location: ");
@@ -51,7 +51,7 @@ void Game() {
   PrintStart();
   printf("Do you want to compete with Computer? (Y/N)\n");
   char play_cpu;
-  char user_name_1[20], user_name_2[20];
+  char player_name_1[20], player_name_2[20];
   scanf(" %c", &play_cpu);
   if (play_cpu == 'Y' || play_cpu == 'y') {
 	printf("OK, you will play against CPU.\n");
@@ -60,22 +60,22 @@ void Game() {
 	printf("All right, I take that a NO.\n");
   }
 
-  GetUserName(1, user_name_1);
+  GetPlayerName(1, player_name_1);
   if (play_cpu == 'Y') {
-	printf("User 2 will be CPU.\n");
-	strcpy(user_name_2, "CPU");
+	printf("Player 2 will be CPU.\n");
+	strcpy(player_name_2, "CPU");
   } else {
-	GetUserName(2, user_name_2);
+	GetPlayerName(2, player_name_2);
   }
   printf("######\n");
-  printf("User 1: %s --- %c\n", user_name_1, MARK_1);
-  printf("User 2: %s --- %c\n", user_name_2, MARK_2);
+  printf("Player 1: %s --- %c\n", player_name_1, MARK_1);
+  printf("Player 2: %s --- %c\n", player_name_2, MARK_2);
   printf("######\n");
   int grid_mat[3][3];
   InitGridMat(grid_mat);
   char play = 'Y';
   while (play == 'Y') {
-	GameLoop(grid_mat, user_name_1, user_name_2, play_cpu);
+	GameLoop(grid_mat, player_name_1, player_name_2, play_cpu);
 	printf("Another round? (Y/N)\n");
 	scanf(" %c", &play);
 	if (play == 'Y' || play == 'y') {
@@ -89,11 +89,11 @@ void Game() {
   PrintEnd();
 }
 
-void GameIterUser(int grid_mat[3][3], int user_id, char *user_name) {
+void GameIterPlayer(int grid_mat[3][3], int player_id, char *player_name) {
   printf("-------------------\n");
-  printf("It is your turn, %s:\n", user_name);
-  int loc = GetUserInput(grid_mat);
-  UpdateGridMat(grid_mat, loc, user_id);
+  printf("It is your turn, %s:\n", player_name);
+  int loc = GetPlayerInput(grid_mat);
+  UpdateGridMat(grid_mat, loc, player_id);
   printf("Current Grid:\n");
   DrawGrid(grid_mat, false);
   printf("-------------------\n\n");
@@ -111,18 +111,18 @@ void GameIterCPU(int grid_mat[3][3]) {
   printf("-------------------\n\n");
 }
 
-void GameLoop(int grid_mat[3][3], char *user_name_1, char *user_name_2, char play_cpu) {
-  printf("Let's start the game! We start from user 1.\n");
-  int cur_user_id = 2;
-  char *cur_user_name = user_name_2;
+void GameLoop(int grid_mat[3][3], char *player_name_1, char *player_name_2, char play_cpu) {
+  printf("Let's start the game! We start from player 1.\n");
+  int cur_player_id = 2;
+  char *cur_player_name = player_name_2;
   while (DetermineWinner(grid_mat) == 0) {
-	cur_user_id = 3 - cur_user_id;
-	cur_user_name = cur_user_id == 1 ? user_name_1 : user_name_2;
-	if (cur_user_id == 2 && play_cpu == 'Y') {
+	cur_player_id = 3 - cur_player_id;
+	cur_player_name = cur_player_id == 1 ? player_name_1 : player_name_2;
+	if (cur_player_id == 2 && play_cpu == 'Y') {
 	  GameIterCPU(grid_mat);
 	} else {
-	  GameIterUser(grid_mat, cur_user_id, cur_user_name);
+	  GameIterPlayer(grid_mat, cur_player_id, cur_player_name);
 	}
   }
-  PrintGameOver(DetermineWinner(grid_mat), user_name_1, user_name_2);
+  PrintGameOver(DetermineWinner(grid_mat), player_name_1, player_name_2);
 }

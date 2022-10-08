@@ -10,8 +10,8 @@ void InitGridMat(int grid_mat[3][3]) {
   }
 }
 
-void UpdateGridMat(int grid_mat[3][3], int loc, int user) {
-  grid_mat[loc / 3][loc % 3] = user;
+void UpdateGridMat(int grid_mat[3][3], int loc, int player) {
+  grid_mat[loc / 3][loc % 3] = player;
 }
 
 int DetermineWinner(int grid_mat[3][3]) {
