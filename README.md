@@ -1,5 +1,5 @@
 # TicTacToeInC
- A simple Tic-Tac-Toe game implemented in pure C.
+A simple console based Tic-Tac-Toe game implemented in pure C.
 
 A small project for C program beginner.
 
