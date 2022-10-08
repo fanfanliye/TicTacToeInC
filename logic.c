@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 #include "logic.h"
 
 void InitGridMat(int grid_mat[3][3]) {
@@ -49,4 +51,18 @@ int DetermineWinner(int grid_mat[3][3]) {
 	}
   }
   return -1;
+}
+
+int SimpleCPUAI(int grid_mat[3][3]) {
+  // A simple AI that randomly choose a location from the current available spots
+  int available_locs[9], count = 0;
+  for (int i = 0; i < 3; i++) {
+	for (int j = 0; j < 3; j++) {
+	  if (grid_mat[i][j] == 0) {
+		available_locs[count] = 3 * i + j;
+		count++;
+	  }
+	}
+  }
+  return available_locs[rand() % count];
 }

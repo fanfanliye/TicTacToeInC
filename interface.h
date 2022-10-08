@@ -13,8 +13,10 @@ void PrintEnd();
 
 int GetUserInput(int grid_mat[3][3]);
 
-void GameIter(int grid_mat[3][3], int user_id, char *user_name);
+void GameIterUser(int grid_mat[3][3], int user_id, char *user_name);
+
+void GameIterCPU(int grid_mat[3][3]);
 
 void Game();
 
-void GameLoop(int grid_mat[3][3], char* user_name_1, char* user_name_2);
+void GameLoop(int grid_mat[3][3], char* user_name_1, char* user_name_2, char play_cpu);
