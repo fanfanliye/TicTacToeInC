@@ -5,8 +5,14 @@
 
 void PrintStart();
 
-void PrintGameOver(char* winner);
+void GetUserName(int user_id, char* user_name);
+
+void PrintGameOver(int winner_id, char* user_name_1, char* user_name_2);
 
 void PrintEnd();
 
 int GetUserInput(int panel_mat[3][3]);
+
+void Game();
+
+void GameLoop(int panel_mat[3][3], char* user_name_1, char* user_name_2);
